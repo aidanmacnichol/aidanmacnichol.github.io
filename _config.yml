@@ -1,1 +1,10 @@
+title: "My Portfolio"
+description: "A quick intro to my projects"
 theme: jekyll-theme-minimal
+
+# If you want to set a base URL, for instance, if your site is at /somepath, do this:
+# baseurl: "/my-portfolio-site"
+
+# Optional, to have GitHub handle plugins:
+plugins:
+  - jekyll-feed
