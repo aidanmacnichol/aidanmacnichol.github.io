@@ -3,6 +3,17 @@ layout: default
 title: "Aidan MacNichol's Project Portfolio"
 ---
 
-# Hello, I'm Aidan
+# About Me
+I have my B.Eng in Electrical Engineering from the University of Victoria. I am currently doing a M.Eng specialized in software at the University of Calgary graduating in April 2025. 
+
+I am very passionate in Embedded/Mechatronics as well as low level computing. 
+
+## Projects
+Here is a list of some of my favorite projects: 
+
+- [Project 1](/project1/)
+- [Project 2](/project2/)
+
+Feel free to explore! 
 
 
