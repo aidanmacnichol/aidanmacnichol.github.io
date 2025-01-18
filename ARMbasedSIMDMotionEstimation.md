@@ -10,6 +10,14 @@ This project was done for an Embedded Systems class - SENG 440 at UVic.
 
 [Project Repository](https://github.com/aidanmacnichol/SENG440-Motion-Estimation)
 
+## Skills 
+
+- Computer architecture (ARM Processors) 
+- Parallel computing (SIMD & Neon Intrinsics)
+- C, Assembly & Python 
+- Embedded
+- Algorithms
+
 
 ## Background
 The goal of this project was to optimize the "sum of absolute differences" (SAD) operation. This operation is commonly used to compress videos. The general idea is to find regions in a video frame that are much different than the preceding frame. This way only changes from frame to frame are encoded instead of the entire frame itself as often most of the frame is extremely similar. This greatly improves memory and speed when encoding video:

@@ -12,7 +12,8 @@ I am very passionate in Embedded/Mechatronics as well as low level computing.
 Here is a list of some of my favorite projects: 
 
 - [ARM based SIMD Motion Estimation](/ARMbasedSIMDMotionEstimation/)
-- [Project 2](/project2/)
+- [CMOS Characterization - Dragonfly Telephoto Array](/CMOScharacterization/)
+- [Neuron Image Segmentation](/neuronSegmentation/)
 
 Feel free to explore! 
 
