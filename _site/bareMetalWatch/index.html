@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bare Metal Watch | My Portfolio</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Bare Metal Watch" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/bareMetalWatch/" />
+<meta property="og:url" content="http://localhost:4000/bareMetalWatch/" />
+<meta property="og:site_name" content="My Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bare Metal Watch" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Bare Metal Watch","url":"http://localhost:4000/bareMetalWatch/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Bare Metal Watch</h1>
+      <h2 class="project-tagline"></h2>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="bare-metal-watch">Bare Metal Watch</h1>
+<p>This is a personal project to practice my embedded skills as well as PCB design. The idea was to design and build a very simple digital watch completely from the ground up. There is very limited features on the watch mainly due to time constraints as I did this project while doing my Masters.</p>
+
+<p>Currently still in a work in progress, just waiting for my PCB’s to be delivered.</p>
+
+<h2 id="skills">Skills</h2>
+<ul>
+  <li>Embedded C/C++</li>
+  <li>PCB design (KiCad)</li>
+  <li>Soldering and HW debugging</li>
+  <li>AVR Microcontrollers</li>
+  <li>I2C</li>
+</ul>
+
+<h2 id="background">Background</h2>
+<p>This project is based around the ATtiny85 Microcontroller. As it has limited GPIO I used two 8-bit shift registers to interface with the 4 digit, 7-segment display I am using. Additionally the The ATtiny does not have a RTC so a separate module is used in conjunction with an oscillator.</p>
+
+<p>Everything is done from scratch for this project except the I2C implementation. I tried to code my own bit banging solution but it proved too time consuming and difficult as I do not have access to an Oscilliscope or logic analyzer for debugging.</p>
+
+<h2 id="schematic"><strong>Schematic:</strong></h2>
+
+<p><img src="/assets/images/schm.png" alt="Schematic" /></p>
+
+<h2 id="pcb-has-gone-through-a-few-iterations-the-first-version-was-circular-with-a-few-glaring-issues"><strong>PCB</strong> Has gone through a few iterations. The first version was circular with a few glaring issues:</h2>
+
+<ol>
+  <li>Wrong resistor footprint (too small to hand solder)</li>
+  <li>Band cuttouts placed wrong.</li>
+</ol>
+
+<p><img src="/assets/images/pcb1.jpg" alt="pcb1" /></p>
+
+<p>The second design is just a simple rectangle which made routing a little easier.</p>
+
+<p><img src="/assets/images/pcb.png" alt="pcb" /></p>
+
+<h2 id="code"><strong>Code</strong></h2>
+
+<p><a href="https://github.com/aidanmacnichol/bareMetalWatch/tree/main/code/src">Repository</a></p>
+
+<p>To program the chip I used a sparkfun AVR programmer.</p>
+
+<p>Right now it is super barebones. Updating the LCD is done in the main loop and there are no interrupts. In the future I would like to add a button so the user can set and change the time themselves.</p>
+
+<p>The most difficult part was <strong>interfacing with the RTC.</strong> I used already implemented code called “USI_TWI_Master” for the I2C communication but implemented setting and reading the time myself according to the datasheet.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+</pre></td><td class="rouge-code"><pre>#include &lt;avr/io.h&gt;
+#include "rtc.h"
+#include &lt;util/delay.h&gt;
+#include "USI_TWI_Master.h"
+
+#define RTC_ADDRESS 0x68
+
+void rtc_init() {
+    USI_TWI_Master_Initialise();
+    
+    uint8_t seconds = rtc_read(0x00); // Read the current seconds value
+    seconds &amp;= 0x7F;                  // Clear the CH bit (set it to 0)
+    rtc_write(0x00, seconds);         // Write back to start the clock
+}
+
+static uint8_t dec2bcd(uint8_t val) {
+    return ((val / 10) &lt;&lt; 4) | (val % 10);
+}
+
+static uint8_t bcd2dec(uint8_t val) {
+    return ((val &gt;&gt; 4) * 10) + (val &amp; 0x0F);
+}
+
+void rtc_write(uint8_t reg, uint8_t value) {
+    uint8_t msg[3];
+    msg[0] = (RTC_ADDRESS &lt;&lt; 1); // DS1307 address with write bit
+    msg[1] = reg;                // Register to write to
+    msg[2] = value;              // Value to write
+
+    USI_TWI_Start_Read_Write(msg, 3); // Send message
+    USI_TWI_Master_Stop();            // Send stop condition
+}
+
+void rtc_set_time(uint8_t min, uint8_t hour) {
+    rtc_write(0x01, dec2bcd(min));  // Set minutes register
+    rtc_write(0x02, dec2bcd(hour)); // Set hours register
+}
+
+uint8_t rtc_read(uint8_t reg) {
+    uint8_t msg[2];
+    msg[0] = (RTC_ADDRESS &lt;&lt; 1); // DS1307 address with write bit
+    msg[1] = reg;                // Register to read from
+
+    USI_TWI_Start_Read_Write(msg, 2); // Send the register address
+    USI_TWI_Master_Stop();            // Send stop condition after setting register address
+
+    // Set up to read data back from the DS1307
+    msg[0] = (RTC_ADDRESS &lt;&lt; 1) | 0x01; // DS1307 address with read bit
+    USI_TWI_Start_Read_Write(msg, 2);   // Read from DS1307
+    USI_TWI_Master_Stop();              // Send stop condition after reading
+
+    return msg[1]; // Return the read value
+}
+
+void rtc_read_time(uint8_t *min, uint8_t *hour) {
+    *min = bcd2dec(rtc_read(0x01));   // Read and convert minutes
+    *hour = bcd2dec(rtc_read(0x02));  // Read and convert hours
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
