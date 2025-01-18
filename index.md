@@ -11,7 +11,7 @@ I am very passionate in Embedded/Mechatronics as well as low level computing.
 ## Projects
 Here is a list of some of my favorite projects: 
 
-- [Project 1](/project1/)
+- [ARM based SIMD Motion Estimation](/ARMbasedSIMDMotionEstimation/)
 - [Project 2](/project2/)
 
 Feel free to explore! 

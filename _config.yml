@@ -1,10 +1,20 @@
 title: "My Portfolio"
-description: "A quick intro to my projects"
 theme: jekyll-theme-cayman
 
-# If you want to set a base URL, for instance, if your site is at /somepath, do this:
+# Markdown processor and syntax highlighter
+markdown: kramdown
+highlighter: rouge
+
+# Base URL (use this only if the site is hosted in a subdirectory)
+# Uncomment and set if applicable
 # baseurl: "/my-portfolio-site"
 
-# Optional, to have GitHub handle plugins:
+# Plugins for additional functionality
 plugins:
   - jekyll-feed
+
+# Optional: Enable syntax highlighting for GitHub Pages
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true # Adds line numbers to code blocks
