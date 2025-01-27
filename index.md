@@ -20,6 +20,8 @@ Here is a list of some of my favorite projects:
 - [CMOS Characterization - Dragonfly Telephoto Array](/CMOScharacterization/)
 - [Neuron Image Segmentation](/neuronSegmentation/)
 - [Bare Metal Watch](/bareMetalWatch/)
+- [FPV Drone](/drone/)
+- [Facial Recognition Tempature Sentry](/tempSentry/)
 
 Feel free to explore! 
 

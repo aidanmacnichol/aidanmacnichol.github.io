@@ -8,3 +8,8 @@ gem "jekyll-theme-cayman"
 
 # Plugins specified in _config.yml
 gem "jekyll-feed"
+
+gem "bundler"
+gem "csv" # Add this line to include the missing library
+gem "base64"
+gem "logger"
