@@ -1,5 +1,5 @@
 title: "My Portfolio"
-theme: jekyll-theme-cayman
+remote_theme: pages-themes/leap-day@v0.2.0
 
 # Markdown processor and syntax highlighter
 markdown: kramdown
@@ -11,10 +11,30 @@ highlighter: rouge
 
 # Plugins for additional functionality
 plugins:
-  - jekyll-feed
+  - jekyll-remote-theme
 
 # Optional: Enable syntax highlighting for GitHub Pages
 kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true # Adds line numbers to code blocks
+
+
+# navigation:
+#   - title: "**Software**"       # Try bolding with Markdown
+#     # url: "#"                  # Optional: dummy URL if required
+#   - title: "Awesome Web App"    # Indentation here is for readability only
+#     url: /awesome-web-app.html # Use relative URLs to your project pages
+#   - title: "Data Analysis Script"
+#     url: /data-script.html
+#   - title: "Cool CLI Tool"
+#     url: /cli-tool.html
+
+#   - title: "**Embedded**"       # Try bolding with Markdown
+#     # url: "#"                  # Optional: dummy URL if required
+#   - title: "Smart Weather Station"
+#     url: /weather-station.html
+#   - title: "Robotic Arm Controller"
+#     url: /robotic-arm.html
+#   - title: "Low-Power Sensor Node"
+#     url: /sensor-node.html

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>CMOS Characterization - Dragonfly Telephoto Array | My Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="CMOS Characterization - Dragonfly Telephoto Array" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/embedded-projects/CMOScharacterization.html" />
+<meta property="og:url" content="http://localhost:4000/embedded-projects/CMOScharacterization.html" />
+<meta property="og:site_name" content="My Portfolio" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CMOS Characterization - Dragonfly Telephoto Array" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"CMOS Characterization - Dragonfly Telephoto Array","url":"http://localhost:4000/embedded-projects/CMOScharacterization.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=34ae3da86bcfec4cc7c21e44f4dddfbb3d679c31">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>CMOS Characterization - Dragonfly Telephoto Array</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/aidanmacnichol/aidanmacnichol.github.io" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<h1 id="cmos-characterization">CMOS Characterization</h1>
+
+<p>This project was done during my co-op term at the National Research Council of Canada (NRC) at the Herzberg Astronomy and Astrophysics research Center (HAA) in Victoria BC. This page is a brief overview. A much more <strong>in depth writeup</strong> can be found in the repository here: <a href="https://github.com/aidanmacnichol/CMOS_Characterization">Project Repository</a></p>
+
+<p>An additional repository I made that contains utilities and complete documentation for interfacing with lab equipment using RS232 serial connections is here: <a href="https://github.com/aidanmacnichol/serial_automation">Project Repository</a></p>
+
+<p>Publications from my work during this term can be seen here:</p>
+
+<p><a href="https://www.researchgate.net/scientific-contributions/Aidan-MacNichol-2285136742">Publications</a></p>
+
+<h2 id="skills">Skills</h2>
+<ul>
+  <li>C++ &amp; Python</li>
+  <li>Mathmatics and Statistics</li>
+  <li>Expirmental Research</li>
+  <li>Semiconductor Physics</li>
+  <li>Optical Engineering</li>
+  <li>Linux</li>
+</ul>
+
+<h2 id="background">Background</h2>
+
+<p>This work was done for the Dragonfly Telephoto Array:</p>
+
+<p><img src="\assets\images\telescope-me.jpg" alt="telescope-me" /></p>
+
+<p>The array currently uses an array of CCD sensors attached to Canon lenses. It is used to research ultra-low surface brightness structures at visible wavelengths.</p>
+
+<p>My work involved researching scientific Complementary Metal-Oxide Semiconductors (sCMOS) to replace the CCD sensors currently in use on the telescope.</p>
+
+<p>This involved coming up with experimental procedures and writing C++ and Python code to gather and analyze data. There is a lot of research and papers published about CCD sensors but less so for CMOS. This meant I had to research and adapt different experimental procedures in order to characterize the sensor I was researching.</p>
+
+<p>The main characteristics looked at are:</p>
+
+<ol>
+  <li>Readout Noise</li>
+  <li>Dark Current</li>
+  <li>Gain</li>
+  <li>Linearity</li>
+  <li>Charge Persistence</li>
+  <li>Salt &amp; Pepper Noise (Random Telegraph Noise)</li>
+  <li>Quantum Effeciency</li>
+</ol>
+
+<p>Most of these characteristics just involved writing Python and come C++ scripts to interface with the sensor and gather data. From There more Python is used to analyze the data mostly using simple statistics.</p>
+
+<h2 id="quantum-efficiency">Quantum Efficiency</h2>
+
+<p>I want to highlight Quantum Efficiency (QE) here as that was the most difficult but interesting characteristic. QE is a measure of how many photons need to hit a pixel to produce one electron. The QE for a sensor can vary over the visible light spectrum so readings must be taken across all wavelengths between 380-700 nm.</p>
+
+<p>The general experimental workflow went like:</p>
+
+<ol>
+  <li>Use a Monochromatic lamp (light contains the full visible spectrum)</li>
+  <li>Shine the lamp into a Monochromoter (A monochromoter uses diffraction grates to only produce a single wavelength of light at the output)</li>
+  <li>Use some optics to focus the output of the monochromoter onto a small spot.</li>
+  <li>First place a photodiode and power meter then take readings (~5 minutes of readings at each wavelength)</li>
+  <li>Replace the photodiode with the CMOS sensor in the exact same orientation and repeat the same readings.</li>
+</ol>
+
+<p>QE can be then calculated:</p>
+
+<p><img src="\assets\images\QEMath.png" alt="qeMath" /></p>
+
+<p>Unfortunately I was not able to get very promising results within the time I had. QE is a notoursly difficult measurment to take. I had to but a blackout drape over the entire setup and turn off all the lights in the lab as any ambient light absolutly ruins the readings.</p>
+
+<p>Some of the technical work I did for this expirment mainly involved writing Python scripts to interface with the RS232 of the monochrometer and power meter, as well as writing clean organized code to save and analyze the GB of data that come from this expiriment.</p>
+
+
+      </section>
+      <footer>
+        
+          <p>Project maintained by <a href="https://github.com/aidanmacnichol">aidanmacnichol</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+  </body>
+</html>

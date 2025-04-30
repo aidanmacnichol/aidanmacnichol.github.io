@@ -19,6 +19,7 @@ Welcome! Below is a list of my projects with a short TLDR. Click the project to 
 * Optimized system to run at 30 Hz real time on a **Raspberry Pi 5** with a **Hailo ML Edge processor**.
 * Implemented a **Kalman filter** to model and predict drone movements.
 
+
 ### [Bare Metal Watch](/embedded-projects/bareMetalWatch.html)
 * Designed and built a wristwatch based around a **AVR** microcontroller.
 * Designed and soldered a PCB using **KiCad.**   
@@ -29,6 +30,7 @@ Welcome! Below is a list of my projects with a short TLDR. Click the project to 
 ---
 
 ## Software
+
 ### [Neuron Image Segmentation](/software-projects/neuronSegmentation.html)
 * Implemented a **U-Net** based **CNN** in **PyTorch** to segment neuron dendrites photographed using pseudo 3D imaging. 
 * Supplemented CNN with classical **morphological/filtering** techniques to improve accuracy. 
@@ -37,13 +39,8 @@ Welcome! Below is a list of my projects with a short TLDR. Click the project to 
 * Utilized inline **assembly** in **C** to optimize video encoding with **SIMD** instructions.
 
 ---
-## SoC/FPGA
 
-### [Diffie-Hellman Cryptography HDL - SystemC](/fpga-projects/systemC.html)
-* Modelled SW-HW handshaking for a cryptographic key exchange algorithm.
-* Designed and implemented a datapath for the algorithm in HW.
 
----
 
 
 

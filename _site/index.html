@@ -1,29 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Aidan MacNichol’s Project Portfolio | My Portfolio</title>
-<meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Aidan MacNichol’s Project Portfolio" />
+<title>My Project Portfolio | My Portfolio</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="My Project Portfolio" />
 <meta property="og:locale" content="en_US" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="My Portfolio" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Aidan MacNichol’s Project Portfolio" />
+<meta property="twitter:title" content="My Project Portfolio" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"Aidan MacNichol’s Project Portfolio","name":"My Portfolio","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","headline":"My Project Portfolio","name":"My Portfolio","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/assets/css/style.css?v=34ae3da86bcfec4cc7c21e44f4dddfbb3d679c31">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -37,45 +40,111 @@
 
   </head>
   <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-    <header class="page-header" role="banner">
-      <h1 class="project-name">Aidan MacNichol's Project Portfolio</h1>
-      <h2 class="project-tagline"></h2>
-      
-      
-    </header>
+      <header>
+        <h1>My Project Portfolio</h1>
+        <p></p>
+      </header>
 
-    <main id="content" class="main-content" role="main">
-      <h1 id="about-me">About Me</h1>
-<p>I have my B.Eng in Electrical Engineering from the University of Victoria. I am currently doing a M.Eng specialized in software at the University of Calgary graduating in April 2025.</p>
+      <div id="banner">
+        <span id="logo"></span>
 
-<p>I am very passionate in Embedded/Mechatronics as well as low level computing.</p>
+        <a href="https://github.com/aidanmacnichol/aidanmacnichol.github.io" class="button fork"><strong>View On GitHub</strong></a>
+        
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="my-project-portfolio">My Project Portfolio</h1>
+
+<p>Welcome! Below is a list of my projects with a short TLDR. Click the project to learn more about it.</p>
+
+<hr />
+
+<h1 id="education">Education</h1>
+<p><strong>B.Eng Electrical Engineering</strong> – <strong>University of Victoria</strong></p>
+
+<p><strong>M.Eng Software Engineering Specialization</strong> – <strong>University of Calgary</strong></p>
 
 <p><a href="https://www.linkedin.com/in/aidanmacnichol/">Linkedin</a></p>
 
-<p><a href="https://www.researchgate.net/scientific-contributions/Aidan-MacNichol-2285136742">Scientific Contributions</a></p>
+<hr />
 
-<h2 id="projects">Projects</h2>
-<p>Here is a list of some of my favorite projects:</p>
+<h2 id="embedded">Embedded</h2>
 
+<h3 id="real-time-drone-trajectory-prediction"><a href="/embedded-projects/droneTrajectory.html">Real Time Drone Trajectory Prediction</a></h3>
 <ul>
-  <li><a href="/ARMbasedSIMDMotionEstimation/">ARM based SIMD Motion Estimation</a></li>
-  <li><a href="/CMOScharacterization/">CMOS Characterization - Dragonfly Telephoto Array</a></li>
-  <li><a href="/neuronSegmentation/">Neuron Image Segmentation</a></li>
-  <li><a href="/bareMetalWatch/">Bare Metal Watch</a></li>
-  <li><a href="/drone/">FPV Drone</a></li>
-  <li><a href="/tempSentry/">Facial Recognition Tempature Sentry</a></li>
+  <li>Optimized system to run at 30 Hz real time on a <strong>Raspberry Pi 5</strong> with a <strong>Hailo ML Edge processor</strong>.</li>
+  <li>Implemented a <strong>Kalman filter</strong> to model and predict drone movements.</li>
 </ul>
 
-<p>Feel free to explore!</p>
+<h3 id="bare-metal-watch"><a href="/embedded-projects/bareMetalWatch.html">Bare Metal Watch</a></h3>
+<ul>
+  <li>Designed and built a wristwatch based around a <strong>AVR</strong> microcontroller.</li>
+  <li>Designed and soldered a PCB using <strong>KiCad.</strong></li>
+</ul>
+
+<h3 id="cmos-characterization"><a href="/embedded-projects/CMOScharacterization.html">CMOS Characterization</a></h3>
+<ul>
+  <li>Developed experiments in <strong>C++/Python</strong> to characterize CMOS sensors for astronomical use.</li>
+</ul>
+
+<hr />
+
+<h2 id="software">Software</h2>
+
+<h3 id="neuron-image-segmentation"><a href="/software-projects/neuronSegmentation.html">Neuron Image Segmentation</a></h3>
+<ul>
+  <li>Implemented a <strong>U-Net</strong> based <strong>CNN</strong> in <strong>PyTorch</strong> to segment neuron dendrites photographed using pseudo 3D imaging.</li>
+  <li>Supplemented CNN with classical <strong>morphological/filtering</strong> techniques to improve accuracy.</li>
+</ul>
+
+<h3 id="arm-based-simd-motion-estimation"><a href="/software-projects/ARMbasedSIMDMotionEstimation.html">ARM Based SIMD Motion Estimation</a></h3>
+<ul>
+  <li>Utilized inline <strong>assembly</strong> in <strong>C</strong> to optimize video encoding with <strong>SIMD</strong> instructions.</li>
+</ul>
+
+<hr />
+
+<!-- ---
+layout: default
+title: "Aidan MacNichol's Project Portfolio"
+---
+
+# About Me
+I have my B.Eng in Electrical Engineering from the University of Victoria. I am currently doing a M.Eng specialized in software at the University of Calgary graduating in April 2025. 
+
+I am very passionate in Embedded/Mechatronics as well as low level computing. 
+
+[Linkedin](https://www.linkedin.com/in/aidanmacnichol/)
+
+[Scientific Contributions](https://www.researchgate.net/scientific-contributions/Aidan-MacNichol-2285136742)
+
+
+## Projects
+Here is a list of some of my favorite projects: 
+
+- [ARM based SIMD Motion Estimation](/ARMbasedSIMDMotionEstimation/)
+- [CMOS Characterization - Dragonfly Telephoto Array](/CMOScharacterization/)
+- [Neuron Image Segmentation](/neuronSegmentation/)
+- [Bare Metal Watch](/bareMetalWatch/)
+- [FPV Drone](/drone/)
+- [Facial Recognition Tempature Sentry](/tempSentry/)
+
+Feel free to explore!  -->
 
 
 
-      <footer class="site-footer">
+      </section>
+      <footer>
         
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+          <p>Project maintained by <a href="https://github.com/aidanmacnichol">aidanmacnichol</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
       </footer>
-    </main>
+    </div>
   </body>
 </html>
