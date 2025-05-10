@@ -30,7 +30,7 @@ Welcome! Below is a list of my projects with a short TLDR. Click the project to 
 
 ## Software
 ### [Neuron Image Segmentation](/software-projects/neuronSegmentation.html)
-* Implemented a **U-Net** based **CNN** in **PyTorch** to segment neuron dendrites photographed using pseudo 3D imaging. 
+* Implemented a **U-Net** based **CNN** in **PyTorch** to segment neuron dendrites photographed using pseudo 3D imaging.    
 * Supplemented CNN with classical **morphological/filtering** techniques to improve accuracy. 
 
 ### [ARM Based SIMD Motion Estimation](/software-projects/ARMbasedSIMDMotionEstimation.html)
